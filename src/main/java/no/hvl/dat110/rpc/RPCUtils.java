@@ -13,10 +13,12 @@ public class RPCUtils {
 		// TODO - START
 		
 		// Encapsulate the rpcid and payload in a byte array according to the RPC message syntax / format
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
+
+		rpcmsg = new byte[1 + payload.length];
+		rpcmsg[0] = rpcid;
+		System.arraycopy(payload, 0, rpcmsg, 1, payload.length);
+
+
 		// TODO - END
 		
 		return rpcmsg;
@@ -29,10 +31,10 @@ public class RPCUtils {
 		// TODO - START
 		
 		// Decapsulate the rpcid and payload in a byte array according to the RPC message syntax
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
+
+		payload = new byte[rpcmsg.length - 1];
+		System.arraycopy(rpcmsg,1, payload, 0, rpcmsg.length - 1);
+
 		// TODO - END
 		
 		return payload;
